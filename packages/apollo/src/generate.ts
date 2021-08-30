@@ -19,7 +19,8 @@ import { generateSource as generateSwiftSource } from "apollo-codegen-swift";
 import { generateSource as generateFlowSource } from "apollo-codegen-flow";
 import {
   generateLocalSource as generateTypescriptLocalSource,
-  generateGlobalSource as generateTypescriptGlobalSource
+  generateGlobalSource as generateTypescriptGlobalSource,
+  generateHelperSource as generateTypescriptHelperSource,
 } from "apollo-codegen-typescript";
 import { generateSource as generateScalaSource } from "apollo-codegen-scala";
 
@@ -147,6 +148,7 @@ export default function generate(
     const context = compileToIR(schema, document, options);
     const generatedFiles = generateTypescriptLocalSource(context);
     const generatedGlobalFile = generateTypescriptGlobalSource(context);
+    const generatedHelperFiles = generateTypescriptHelperSource(context);
 
     const outFiles: {
       [fileName: string]: BasicGeneratedFile;
@@ -194,6 +196,26 @@ export default function generate(
             .fileContents
         };
       });
+      if (context.options.createHelpers) {
+        generatedHelperFiles.forEach(({ sourcePath, fileName, content }) => {
+          let dir = '';
+          if (nextToSources) {
+            dir = path.join(
+              path.dirname(path.relative(rootPath, toPath(sourcePath))),
+              dir
+            );
+            if (!fs.existsSync(dir)) {
+              fs.mkdirSync(dir);
+            }
+          }
+
+          const outFilePath = path.join(dir, fileName);
+          outFiles[outFilePath] = {
+            output: content({ outputPath: outFilePath, globalSourcePath })
+              .fileContents
+          };
+        });
+      }
 
       writeGeneratedFiles(outFiles, path.resolve("."));
 

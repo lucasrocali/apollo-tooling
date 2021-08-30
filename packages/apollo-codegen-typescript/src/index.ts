@@ -1,5 +1,6 @@
 export {
   generateSource,
   generateLocalSource,
-  generateGlobalSource
+  generateGlobalSource,
+  generateHelperSource,
 } from "./codeGeneration";

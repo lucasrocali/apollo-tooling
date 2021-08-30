@@ -109,7 +109,11 @@ export default class Generate extends ClientCommand {
     tsFileExtension: flags.string({
       description:
         'By default, TypeScript will output "ts" files. Set "tsFileExtension" to specify a different file extension, for example "d.ts"'
-    })
+    }),
+    createHelpers: flags.boolean({
+      description:
+        'Helper files will be generated if createHelpers is setted'
+    }),
   };
 
   static args = [
@@ -242,7 +246,8 @@ export default class Generate extends ClientCommand {
                     suppressSwiftMultilineStringLiterals:
                       flags.suppressSwiftMultilineStringLiterals,
                     omitDeprecatedEnumCases: flags.omitDeprecatedEnumCases,
-                    exposeTypeNodes: inferredTarget === "json-modern"
+                    exposeTypeNodes: inferredTarget === "json-modern",
+                    createHelpers: flags.createHelpers,
                   }
                 );
               };

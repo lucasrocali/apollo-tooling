@@ -208,6 +208,29 @@ export function generateLocalSource(
   return operations.concat(fragments);
 }
 
+function lowerFirstLetter(string:string) :string {
+  return string.charAt(0).toLowerCase() + string.slice(1);
+}
+
+export function generateHelperSource(
+  context: CompilerContext
+): IGeneratedFile[] {
+  const generator = new TypescriptAPIGenerator(context);
+
+  const operations = Object.values(context.operations).map(operation => ({
+    sourcePath: operation.filePath,
+    fileName: `${lowerFirstLetter(operation.operationName)}.ts`,
+    content: (options?: IGeneratedFileOptions) => {
+      generator.fileHeader();
+      generator.helpersForOperation(operation);
+      const output = generator.printer.printAndClear();
+      return new TypescriptGeneratedFile(output);
+    }
+  }));
+
+  return operations;
+}
+
 export function generateGlobalSource(
   context: CompilerContext
 ): TypescriptGeneratedFile {
@@ -347,6 +370,115 @@ export class TypescriptAPIGenerator extends TypescriptGenerator {
     }
 
     this.scopeStackPop();
+  }
+
+  public helpersForOperation(operation: Operation) {
+    const { operationType, operationName, variables, selectionSet } = operation;
+
+    this.scopeStackPush(operationName);
+
+    this.printer.enqueue(stripIndent`
+      // ====================================================
+      // Helper ${operationType} ${operationName}
+      // ====================================================
+    `);
+
+    const hasVars = variables.length > 0
+    const operationConstantName = operationName.split(/(?=[A-Z])/).join('_').toUpperCase()
+    const operationData = operationName
+    const operationVar = hasVars ?`${operationName}Variables` : '{}';
+
+      if (operationType === 'query') {
+        this.printer.enqueue(stripIndent`
+        import {
+          useQuery,
+          QueryHookOptions,
+          QueryResult,
+          useLazyQuery,
+          LazyQueryHookOptions,
+          QueryTuple,
+        } from '@apollo/client';
+        import { MockedResponse } from '@apollo/client/testing';
+        import { ${operationData}${hasVars ? `, ${operationVar}` : ''} } from './types/${operationName}';
+        import { ${operationConstantName} } from './';
+
+        export function use${operationName}Query(
+          options?: QueryHookOptions<${operationData}, ${operationVar}>,
+        ): QueryResult<${operationData}, ${operationVar}> {
+          return useQuery<${operationData}, ${operationVar}>(${operationConstantName}, options);
+        }
+
+        export function use${operationName}LazyQuery(
+          options?: LazyQueryHookOptions<${operationData}, ${operationVar}>,
+        ): QueryTuple<${operationData}, ${operationVar}> {
+          return useLazyQuery<${operationData}, ${operationVar}>(${operationConstantName}, options);
+        }
+
+        export function create${operationName}Mock({
+          variables,
+          data,
+          error,
+        }: {
+          variables?: ${hasVars ? operationVar:'undefined'};
+          data?: ${operationData};
+          error?: Error;
+        }): MockedResponse {
+          return {
+            request: {
+              query: ${operationConstantName},
+              variables,
+            },
+            result: {
+              data,
+            },
+            error,
+          };
+        }
+
+        `);
+    } else {
+      this.printer.enqueue(stripIndent`
+      import {
+        useMutation,
+        MutationHookOptions,
+        MutationTuple,
+      } from '@apollo/client';
+      import { MockedResponse } from '@apollo/client/testing';
+      import { ${operationData}, ${operationVar} } from './types/${operationName}';
+      import { ${operationConstantName} } from './';
+
+      export function use${operationName}Mutation(
+        options?: MutationHookOptions<${operationData}, ${operationVar}>,
+      ): MutationTuple<${operationData}, ${operationVar}> {
+        return useMutation<${operationData}, ${operationVar}>(
+          ${operationConstantName},
+          options,
+        );
+      }
+
+      export function create${operationName}Mock({
+        variables,
+        data,
+        error,
+      }: {
+        variables?: ${operationVar};
+        data?: ${operationData};
+        error?: Error;
+      }): MockedResponse {
+        return {
+          request: {
+            query: ${operationConstantName},
+            variables,
+          },
+          result: {
+            data,
+          },
+          error,
+        };
+      }
+
+      `);
+    }
   }
 
   public getGlobalTypesUsedForOperation = (doc: Operation) => {
