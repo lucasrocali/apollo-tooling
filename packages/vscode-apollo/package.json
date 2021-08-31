@@ -2,7 +2,7 @@
   "name": "rocali-vscode-apollo",
   "displayName": "Apollo GraphQL",
   "description": "Rich editor support for GraphQL client and server development that seamlessly integrates with the Apollo platform",
-  "version": "1.19.13",
+  "version": "1.19.14",
   "referenceID": "87197759-7617-40d0-b32e-46d378e907c7",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
@@ -29,8 +29,8 @@
     "vscode": "^1.30.0"
   },
   "dependencies": {
-    "apollo-env": "^0.10.1",
-    "apollo-language-server": "^1.26.5",
+    "rocali-apollo-env": "^0.10.10",
+    "rocali-apollo-language-server": "^1.26.14",
     "vscode-languageclient": "^5.2.1"
   },
   "publisher": "apollographql",
