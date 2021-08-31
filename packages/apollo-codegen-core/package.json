@@ -1,7 +1,7 @@
 {
   "name": "rocali-apollo-codegen-core",
   "description": "Core generator APIs for Apollo Codegen",
-  "version": "0.40.12",
+  "version": "0.40.13",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
   "repository": {
