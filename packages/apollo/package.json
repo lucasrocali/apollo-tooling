@@ -1,7 +1,7 @@
 {
   "name": "@rocali/apollo",
   "description": "Command line tool for Apollo GraphQL",
-  "version": "2.33.7",
+  "version": "2.33.8",
   "referenceID": "21ad0845-c235-422e-be7d-a998310df972",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
@@ -116,5 +116,5 @@
       "<rootDir>/test-utils/setup.js"
     ]
   },
-  "gitHead": "8da009e47419b0a01bb0918566ac3357c7efd129"
+  "gitHead": "e23b272f3fb833b3557a576dd27bbcf8a50f5535"
 }
