@@ -1,7 +1,7 @@
 {
   "name": "rocali-apollo-language-server",
   "description": "A language server for Apollo GraphQL projects",
-  "version": "1.26.11",
+  "version": "1.26.12",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
   "repository": {
