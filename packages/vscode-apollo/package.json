@@ -1,8 +1,8 @@
 {
-  "name": "@rocali/vscode-apollo",
+  "name": "rocali-vscode-apollo",
   "displayName": "Apollo GraphQL",
   "description": "Rich editor support for GraphQL client and server development that seamlessly integrates with the Apollo platform",
-  "version": "1.19.8",
+  "version": "1.19.9",
   "referenceID": "87197759-7617-40d0-b32e-46d378e907c7",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
@@ -167,5 +167,5 @@
     "color": "#1d127d",
     "theme": "dark"
   },
-  "gitHead": "0545d2cb41da09ee1241810ab6e0a7b81cbfd886"
+  "gitHead": "6ea6e5215f9f817503b44aa96d2711d1fbf1f534"
 }
