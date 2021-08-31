@@ -1,11 +1,10 @@
 {
-  "name": "apollo-tooling-monorepo",
-  "private": true,
+  "name": "@rocali/apollo-tooling-monorepo",
   "homepage": "https://github.com/apollographql/apollo-tooling",
   "bugs": "https://github.com/apollographql/apollo-tooling/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/apollographql/apollo-tooling.git"
+    "url": "git+https://github.com/lucasrocali/apollo-tooling.git"
   },
   "license": "MIT",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
