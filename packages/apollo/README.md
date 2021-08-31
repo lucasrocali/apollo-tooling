@@ -23,7 +23,7 @@ $ npm install -g rocali-apollo
 $ apollo COMMAND
 running command...
 $ apollo (-v|--version|version)
-rocali-apollo/2.33.10 darwin-arm64 node-v16.3.0
+rocali-apollo/2.33.11 darwin-arm64 node-v16.3.0
 $ apollo --help [COMMAND]
 USAGE
   $ apollo COMMAND
