@@ -1,7 +1,7 @@
 {
   "name": "rocali-apollo-language-server",
   "description": "A language server for Apollo GraphQL projects",
-  "version": "1.26.14",
+  "version": "1.26.15",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
   "repository": {
@@ -38,7 +38,7 @@
     "lodash.merge": "^4.6.1",
     "minimatch": "^3.0.4",
     "moment": "2.29.1",
-    "rocali-apollo-env": "^0.10.10",
+    "rocali-apollo-env": "^0.10.11",
     "rocali-apollo-tools": "0.5.6",
     "vscode-languageserver": "^5.1.0",
     "vscode-uri": "1.0.6"
