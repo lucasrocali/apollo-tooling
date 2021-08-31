@@ -1,7 +1,7 @@
 {
   "name": "rocali-apollo",
   "description": "Command line tool for Apollo GraphQL",
-  "version": "2.33.11",
+  "version": "2.33.12",
   "referenceID": "21ad0845-c235-422e-be7d-a998310df972",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
@@ -31,7 +31,6 @@
     "npm": ">=6"
   },
   "dependencies": {
-    "@apollographql/apollo-tools": "^0.5.2",
     "@oclif/command": "1.8.0",
     "@oclif/config": "1.17.0",
     "@oclif/errors": "1.3.4",
@@ -64,6 +63,7 @@
     "lodash.pickby": "4.6.0",
     "mkdirp": "1.0.4",
     "moment": "2.29.1",
+    "rocali-apollo-tools": "0.5.6",
     "strip-ansi": "5.2.0",
     "table": "6.7.1",
     "tty": "1.0.1",

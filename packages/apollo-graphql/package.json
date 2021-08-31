@@ -1,6 +1,6 @@
 {
   "name": "rocali-apollo-graphql",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "description": "Apollo GraphQL utility library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
