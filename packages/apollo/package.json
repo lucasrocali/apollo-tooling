@@ -1,7 +1,7 @@
 {
-  "name": "apollo",
+  "name": "@rocali/apollo",
   "description": "Command line tool for Apollo GraphQL",
-  "version": "2.33.6",
+  "version": "2.33.7",
   "referenceID": "21ad0845-c235-422e-be7d-a998310df972",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "npm": ">=6"
   },
   "dependencies": {
-    "@apollographql/apollo-tools": "file:../apollo-tools",
+    "@apollographql/apollo-tools": "^0.5.2",
     "@oclif/command": "1.8.0",
     "@oclif/config": "1.17.0",
     "@oclif/errors": "1.3.4",
@@ -40,14 +40,14 @@
     "@oclif/plugin-not-found": "1.2.4",
     "@oclif/plugin-plugins": "1.10.0",
     "@oclif/plugin-warn-if-update-available": "1.7.0",
-    "apollo-codegen-core": "file:../apollo-codegen-core",
-    "apollo-codegen-flow": "file:../apollo-codegen-flow",
-    "apollo-codegen-scala": "file:../apollo-codegen-scala",
-    "apollo-codegen-swift": "file:../apollo-codegen-swift",
-    "apollo-codegen-typescript": "file:../apollo-codegen-typescript",
-    "apollo-env": "file:../apollo-env",
-    "apollo-graphql": "file:../apollo-graphql",
-    "apollo-language-server": "file:../apollo-language-server",
+    "apollo-codegen-core": "^0.40.5",
+    "apollo-codegen-flow": "^0.38.5",
+    "apollo-codegen-scala": "^0.39.5",
+    "apollo-codegen-swift": "^0.40.5",
+    "apollo-codegen-typescript": "^0.40.5",
+    "apollo-env": "^0.10.1",
+    "apollo-graphql": "^0.9.4",
+    "apollo-language-server": "^1.26.5",
     "chalk": "2.4.2",
     "cli-ux": "5.5.1",
     "env-ci": "5.0.2",
@@ -115,5 +115,6 @@
     "setupFilesAfterEnv": [
       "<rootDir>/test-utils/setup.js"
     ]
-  }
+  },
+  "gitHead": "8da009e47419b0a01bb0918566ac3357c7efd129"
 }

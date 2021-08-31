@@ -1,6 +1,6 @@
 {
-  "name": "apollo-env",
-  "version": "0.10.1",
+  "name": "@rocali/apollo-env",
+  "version": "0.10.2",
   "author": "opensource@apollographql.com",
   "license": "MIT",
   "repository": {
@@ -19,5 +19,6 @@
     "core-js": "^3.0.1",
     "node-fetch": "^2.6.1",
     "sha.js": "^2.4.11"
-  }
+  },
+  "gitHead": "8da009e47419b0a01bb0918566ac3357c7efd129"
 }

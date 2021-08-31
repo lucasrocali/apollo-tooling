@@ -1,7 +1,7 @@
 {
-  "name": "apollo-codegen-scala",
+  "name": "@rocali/apollo-codegen-scala",
   "description": "Scala generator module for Apollo Codegen",
-  "version": "0.39.5",
+  "version": "0.39.6",
   "author": "Apollo GraphQL <opensource@apollographql.com>",
   "license": "MIT",
   "repository": {
@@ -17,7 +17,7 @@
     "npm": ">=6"
   },
   "dependencies": {
-    "apollo-codegen-core": "file:../apollo-codegen-core",
+    "apollo-codegen-core": "^0.40.5",
     "change-case": "^4.0.0",
     "common-tags": "^1.5.1",
     "inflected": "^2.0.3"
@@ -47,5 +47,6 @@
         "diagnostics": false
       }
     }
-  }
+  },
+  "gitHead": "8da009e47419b0a01bb0918566ac3357c7efd129"
 }

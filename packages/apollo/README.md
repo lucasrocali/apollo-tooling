@@ -19,11 +19,11 @@ Apollo CLI brings together your GraphQL clients and servers with tools for valid
 
 <!-- usage -->
 ```sh-session
-$ npm install -g apollo
+$ npm install -g @rocali/apollo
 $ apollo COMMAND
 running command...
 $ apollo (-v|--version|version)
-apollo/2.33.6 darwin-arm64 node-v16.3.0
+@rocali/apollo/2.33.7 darwin-arm64 node-v16.3.0
 $ apollo --help [COMMAND]
 USAGE
   $ apollo COMMAND

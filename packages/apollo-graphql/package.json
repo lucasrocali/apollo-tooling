@@ -1,6 +1,6 @@
 {
-  "name": "apollo-graphql",
-  "version": "0.9.4",
+  "name": "@rocali/apollo-graphql",
+  "version": "0.9.5",
   "description": "Apollo GraphQL utility library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -43,5 +43,6 @@
         "diagnostics": false
       }
     }
-  }
+  },
+  "gitHead": "8da009e47419b0a01bb0918566ac3357c7efd129"
 }
